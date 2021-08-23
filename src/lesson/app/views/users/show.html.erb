@@ -1,0 +1,26 @@
+<h3>ユーザー詳細</h3>
+
+<table>
+  <tr>
+    <tr>名前</tr>
+    <tr><%= @user.name %></tr>
+  </tr>
+  <tr>
+    <tr>メールアドレス</tr>
+    <tr><%= @user.email %></tr>
+  </tr>
+  <tr>
+    <tr>年齢</tr>
+    <tr><%= @user.age %></tr>
+  </tr>
+  <tr>
+    <tr>一言紹介</tr>
+    <tr><%= @user.introduction %></tr>
+  </tr>
+</table>
+
+<div>
+  <ul>
+    <li><%= link_to"ユーザー情報一覧に戻る",:users %></li>
+  </ul>
+</div>
