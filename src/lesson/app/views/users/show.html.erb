@@ -1,0 +1,71 @@
+<h3>ユーザー詳細</h3>
+
+<table>
+  <tr>
+    <tr>名前</tr>
+    <tr><%= @user.name %></tr>
+  </tr>
+  <tr>
+    <tr>メールアドレス</tr>
+    <tr><%= @user.email %></tr>
+  </tr>
+  <tr>
+    <tr>年齢</tr>
+    <tr><%= @user.age %></tr>
+  </tr>
+  <tr>
+    <tr>一言紹介</tr>
+    <tr><%= @user.introduction %></tr>
+  </tr>
+</table>
+
+<h3>投稿一覧</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>投稿内容</th>
+        <th>更新日時</th>
+        <th>投稿日時</th>
+        <th>投稿者(User_id)</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @posts.each do |post| %>
+        <tr>
+          <td><%= post.content %></td>
+          <td><%= post.updated_at.to_s(:datetime_jp) %></td>
+          <td><%= post.created_at.to_s(:datetime_jp) %></td>
+          <td><%= post.user_id %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<h3>新規投稿</h3>
+
+<%= form_for @post do |f| %>
+
+  <table>
+    <tr>
+      <th><%= f.label :content,"投稿内容" %></th>
+      <td><%= f.text_area :content, class:"posts-content" %></td>
+    </tr>
+  </table>
+
+  <%= f.hidden_field :user_id,value: @user.id %>
+
+  <div>
+    <ul>
+      <li><%= f.submit"投稿を完了する" %></li>
+    </ul>
+  </div>
+
+  <% end %>
+
+<div>
+  <ul>
+    <li><%= link_to"ユーザー情報一覧に戻る",:users %></li>
+  </ul>
+</div>
