@@ -22,6 +22,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @post = Post.new
+    @posts = Post.where(user_id: @user.id)#この記述でも実装できる
   end
 
   def edit
